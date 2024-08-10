@@ -1,0 +1,18 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+.phonebookTitle {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    font-weight: 700;
+    color: black;
+}
+
+.isLoadingText{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    color: black;
+}
+
