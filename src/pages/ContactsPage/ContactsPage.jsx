@@ -7,11 +7,10 @@ import { getError, getIsLoading } from "../../redux/contactsSlice";
 import ContactForm from "../../components/ContactForm/ContactForm";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import ContactList from "../../components/ContactList/ContactList";
-import styles from "./ContactsPage.module.css";
+import css from "./ContactsPage.module.css";
 
 
 function ContactsPage() {
-  const { container, phonebookTitle, isLoadingText } = styles;
 
   const dispatch = useDispatch();
   const isLoading = useSelector(getIsLoading);
@@ -23,11 +22,11 @@ function ContactsPage() {
   }, [dispatch]);
 
   return (
-    <div className={container}>
-      <h1 className={phonebookTitle}>Phonebook</h1>
+    <div className={css.contactsPage}>
+      <h2 >Phonebook</h2>
       <ContactForm />
       <SearchBox />
-      {isLoading && !error && <b className={isLoadingText}>Request in progress...</b>}
+      {isLoading && !error && <b className={css.isLoadingText}>Request in progress...</b>}
       <ContactList/>
     </div>
   );

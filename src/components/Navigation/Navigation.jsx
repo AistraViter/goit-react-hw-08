@@ -17,8 +17,8 @@ function Navigation() {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/movies" className={navItem}>
-              Movies
+            <NavLink to="/contacts" className={navItem}>
+              Contacts
             </NavLink>
           </li>
         </ul>
