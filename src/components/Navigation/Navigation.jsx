@@ -10,7 +10,7 @@ function Navigation() {
   return (
     <header className={css.header}>
       <nav>
-        <ul className={css.nav}>
+        <ul className={css.navMain}>
           <li>
             <NavLink to="/" className={navItem}>
               Home
@@ -19,6 +19,27 @@ function Navigation() {
           <li>
             <NavLink to="/contacts" className={navItem}>
               Contacts
+            </NavLink>
+          </li>
+        </ul>
+        <ul className={css.headerWelcome}>
+          <li>
+            <p> Welcome, Username! </p>
+          </li>
+          <li>
+            <a> Logout</a>
+          </li>
+        </ul>
+        <div></div>
+        <ul className={css.navLogin}>
+          <li>
+            <NavLink to="/register" className={navItem}>
+              Register
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="/login" className={navItem}>
+              Login
             </NavLink>
           </li>
         </ul>
