@@ -10,11 +10,11 @@ const registerFormSchema = Yup.object().shape({
     .min(3, "Too Short!")
     .max(50, "Too Long!")
     .required("Required"),
-  number: Yup.string()
-    // .matches(
-    //   /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/,
-    //   "Invalid phone number format! Should be like: 000-00-00"
-    // )
+    email: Yup.string()
+    .email("Invalid email format")
+    .required("Required"),
+  password: Yup.string()
+    .min(6, "Password must be at least 6 characters")
     .required("Required"),
 });
 
