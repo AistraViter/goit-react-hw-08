@@ -30,9 +30,12 @@ function RegisterPage() {
   const id = useId();
 
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(addContact({ name: values.name, number: values.number }));
+    dispatch(addContact({ name: values.name,
+        email: values.email,
+        password: values.password, }));
     resetForm();
   };
+
   return (
     <div className={css.regesterFormPage} > 
 
