@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { addContact } from "../../redux/contacts/operations";
-import css from "./RegisterPage.module.css";
+import css from "./RegistrationPage.module.css";
 
 const registerFormSchema = Yup.object().shape({
   name: Yup.string()
@@ -24,7 +24,7 @@ const initialValues = {
   password: "",
 
 };
-function RegisterPage() { 
+function RegistrationPage() { 
 
   const dispatch = useDispatch();
   const id = useId();
@@ -77,4 +77,4 @@ function RegisterPage() {
     </div>
   );
 }
-export default RegisterPage;
+export default RegistrationPage;

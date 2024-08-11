@@ -4,7 +4,7 @@ import AppBar from "./AppBar/AppBar";
 import "normalize.css";
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
-const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
+const RegistrationPage = lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
@@ -16,7 +16,7 @@ function App({errorMessage }) {
         <Routes>
           <Route path="/" element={<HomePage errorMessage={errorMessage} />} />
           <Route path="/contacts" element={<ContactsPage />} />
-          <Route path="/register" element={<RegisterPage />} />
+          <Route path="/register" element={<RegistrationPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
