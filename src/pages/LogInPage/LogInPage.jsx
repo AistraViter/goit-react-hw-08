@@ -2,33 +2,29 @@ import { useId } from "react";
 import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
-import { addContact } from "../../redux/contacts/operations";
+import { logIn } from "../../redux/auth/operations";
 import css from "./LoginPage.module.css";
 
 const loginFormSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email format").required("Required"),
   password: Yup.string()
-    .min(6, "Password must be at least 6 characters")
-    .required("Required"),
+  .min(7, "Password must be at least 7 characters")
+  .required("Required"),
 });
 
 const initialValues = {
+  name: "",
   email: "",
   password: "",
 };
 function LoginPage() {
   const dispatch = useDispatch();
-  const id = useId();
 
-  const handleSubmit = (values, { resetForm }) => {
-    dispatch(
-      addContact({
-        email: values.email,
-        password: values.password,
-      })
-    );
-    resetForm();
+  const handleSubmit = (values, actions) => {
+    dispatch(logIn(values));
+    actions.resetForm();
   };
+  const id = useId();
 
   return (
     <div className={css.loginFormPage}>
