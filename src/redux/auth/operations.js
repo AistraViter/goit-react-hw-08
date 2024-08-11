@@ -8,6 +8,7 @@ export const register = createAsyncThunk(
     async (newUser, thunkAPI) => {
       try {
         const response = await axios.post("/users/signup", newUser);
+        axios.defaults.headers.common.Authorization= `Bearer ${response.data.token}`
         return response.data;
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);
@@ -20,6 +21,7 @@ export const register = createAsyncThunk(
     async (creds, thunkAPI) => {
       try {
         const response = await axios.post("/users/login", creds);
+        axios.defaults.headers.common.Authorization= `Bearer ${response.data.token}`
         return response.data;
       } catch (e) {
         return thunkAPI.rejectWithValue(e.message);

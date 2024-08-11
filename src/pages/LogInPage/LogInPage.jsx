@@ -8,8 +8,8 @@ import css from "./LoginPage.module.css";
 const loginFormSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email format").required("Required"),
   password: Yup.string()
-  .min(7, "Password must be at least 7 characters")
-  .required("Required"),
+    .min(7, "Password must be at least 7 characters")
+    .required("Required"),
 });
 
 const initialValues = {
