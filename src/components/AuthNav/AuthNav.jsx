@@ -7,18 +7,14 @@ const navItem = ({ isActive }) => {
 
 function AuthNav() {
   return (
-    <ul className={css.authNav}>
-      <li>
-        <NavLink to="/register" className={navItem}>
-          Register
-        </NavLink>
-      </li>
-      <li>
-        <NavLink to="/login" className={navItem}>
-          Login
-        </NavLink>
-      </li>
-    </ul>
+    <nav className={css.authNav}>
+      <NavLink to="/register" className={navItem}>
+        Register
+      </NavLink>
+      <NavLink to="/login" className={navItem}>
+        Login
+      </NavLink>
+    </nav>
   );
 }
 export default AuthNav;
