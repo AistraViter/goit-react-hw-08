@@ -54,7 +54,7 @@ function LoginPage() {
             <ErrorMessage name="password" component="span" />
           </div>
 
-          <button type="submit">Register</button>
+          <button type="submit">Log In</button>
         </Form>
       </Formik>
     </div>
