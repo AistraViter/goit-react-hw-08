@@ -1,6 +1,5 @@
-import { createSlice, createSelector} from "@reduxjs/toolkit";
-import { fetchContacts, addContact, deleteContact  } from "./contactsOps";
-import { selectFilter} from "./filtersSlice";
+import { createSlice } from "@reduxjs/toolkit";
+import { fetchContacts, addContact, deleteContact } from "./operations";
 
 const contactsSlice = createSlice({
   name: "contacts",
@@ -38,15 +37,15 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       });
-      builder
-      .addCase(deleteContact.pending, state => {
+    builder
+      .addCase(deleteContact.pending, (state) => {
         state.isLoading = true;
       })
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
         const index = state.items.findIndex(
-          contact => contact.id === action.payload.id
+          (contact) => contact.id === action.payload.id
         );
         state.items.splice(index, 1);
       })
@@ -54,24 +53,12 @@ const contactsSlice = createSlice({
         state.isLoading = false;
         state.error = action.payload;
       });
-
   },
 });
 
 export default contactsSlice.reducer;
 
-// Оголошуємо селектори
-
 export const selectContacts = (state) => state.contacts.items;
-export const selectFilteredContacts = createSelector(
-  [selectContacts, selectFilter],
-  (contacts, filter) => {
-    return contacts.filter((contact) =>
-      contact.name?.toLowerCase().includes(filter?.toLowerCase() || "")
-    );
-  }
-);
-
 export const getTasks = (state) => state.contacts.items;
 export const getIsLoading = (state) => state.contacts.isLoading;
 export const getError = (state) => state.contacts.error;
