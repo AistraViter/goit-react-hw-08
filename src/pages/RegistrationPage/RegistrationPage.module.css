@@ -1,15 +1,14 @@
-.regesterFormPage {
+.registerFormPage {
   padding: 40px;
   height: 100vh;
   margin: 0;
 }
-.regesterForm {
+.registerForm {
   box-sizing: border-box;
   width: 400px;
   padding: 20px;
   border: 2px solid black;
   border-radius: 4px;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -18,7 +17,7 @@
   margin-bottom: 40px;
 }
 
-.regesterForm input {
+.registerForm input {
   box-sizing: border-box;
   width: 360px;
   height: 40px;
@@ -29,14 +28,14 @@
   font-size: 16px;
 }
 
-.regesterForm label {
+.registerForm label {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: black;
   margin: 0;
 }
 
-.regesterForm button {
+.registerForm button {
   width: 140px;
   height: 40px;
   padding: 8px 12px;
