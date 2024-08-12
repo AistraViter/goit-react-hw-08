@@ -29,3 +29,13 @@
 .userMenu a:active {
   color: rgb(255, 0, 166);
 }
+
+@media (max-width: 767px) {
+  .navigation,
+  .authNav,
+  .userMenu {
+    flex-direction: column;
+    gap: 24px;
+    align-items: baseline;
+  }
+}
