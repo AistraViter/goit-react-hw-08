@@ -2,7 +2,7 @@ import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "normalize.css";
-import AppBar from "./AppBar/AppBar";
+import Layout from "./Layout/Layout";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { refreshUser } from "../redux/auth/operations";
@@ -29,7 +29,7 @@ function App({ errorMessage }) {
     <div className={css.apploading}>Refreshing...</div>
   ) : (
     <div>
-      {<AppBar />}
+      {<Layout />}
       <Suspense fallback={<div className={css.apploading}>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage errorMessage={errorMessage} />} />
