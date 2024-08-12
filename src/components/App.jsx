@@ -14,7 +14,7 @@ const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
 const RegistrationPage = lazy(() =>
   import("../pages/RegistrationPage/RegistrationPage")
 );
-const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
+const LogInPage = lazy(() => import("../pages/LogInPage/LogInPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 function App({ errorMessage }) {
@@ -53,7 +53,7 @@ function App({ errorMessage }) {
             path="/login"
             element={
               <RestrictedRoute
-                component={<LoginPage />}
+                component={<LogInPage />}
                 redirectTo="/contacts"
               />
             }

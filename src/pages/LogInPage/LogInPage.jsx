@@ -3,9 +3,9 @@ import { useDispatch } from "react-redux";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { logIn } from "../../redux/auth/operations";
-import css from "./LoginPage.module.css";
+import css from "./LogInPage.module.css";
 
-const loginFormSchema = Yup.object().shape({
+const logInFormSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email format").required("Required"),
   password: Yup.string()
     .min(7, "Password must be at least 7 characters")
@@ -17,7 +17,7 @@ const initialValues = {
   email: "",
   password: "",
 };
-function LoginPage() {
+function LogInPage() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -27,23 +27,23 @@ function LoginPage() {
   const id = useId();
 
   return (
-    <div className={css.loginFormPage}>
+    <div className={css.logInFormPage}>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
-        validationSchema={loginFormSchema}
+        validationSchema={logInFormSchema}
       >
-        <Form className={css.loginForm}>
+        <Form className={css.logInForm}>
           <div>
-            <label htmlFor={`loginFormEmail${id}`}>Email</label>
-            <Field id={`loginFormEmail${id}`} type="email" name="email"></Field>
+            <label htmlFor={`logInFormEmail${id}`}>Email</label>
+            <Field id={`logInFormEmail${id}`} type="email" name="email"></Field>
             <ErrorMessage name="email" component="span" />
           </div>
 
           <div>
-            <label htmlFor={`loginFormPassword${id}`}>Password</label>
+            <label htmlFor={`logInFormPassword${id}`}>Password</label>
             <Field
-              id={`loginFormPassword${id}`}
+              id={`logInFormPassword${id}`}
               type="password"
               name="password"
             ></Field>
@@ -56,4 +56,4 @@ function LoginPage() {
     </div>
   );
 }
-export default LoginPage;
+export default LogInPage;
