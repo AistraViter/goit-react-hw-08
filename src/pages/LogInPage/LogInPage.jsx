@@ -17,7 +17,7 @@ const initialValues = {
   email: "",
   password: "",
 };
-function LogInPage() {
+function NewLogInPage() {
   const dispatch = useDispatch();
 
   const handleSubmit = (values, actions) => {
@@ -27,13 +27,13 @@ function LogInPage() {
   const id = useId();
 
   return (
-    <div className={css.logInFormPage}>
+    <div className={css.loggPage}>
       <Formik
         initialValues={initialValues}
         onSubmit={handleSubmit}
         validationSchema={logInFormSchema}
       >
-        <Form className={css.logInForm}>
+        <Form className={css.logg}>
           <div>
             <label htmlFor={`logInFormEmail${id}`}>Email</label>
             <Field id={`logInFormEmail${id}`} type="email" name="email"></Field>
@@ -56,4 +56,4 @@ function LogInPage() {
     </div>
   );
 }
-export default LogInPage;
+export default NewLogInPage;

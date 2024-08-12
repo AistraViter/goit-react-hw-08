@@ -1,9 +1,9 @@
-.logInFormPage {
+.loggPage {
   padding: 40px 20px;
   height: 100vh;
   margin: 0;
 }
-.logInForm {
+.logg {
   box-sizing: border-box;
   max-width: 320px;
   padding: 20px;
@@ -17,7 +17,7 @@
   margin-bottom: 40px;
 }
 
-.logInForm input {
+.logg input {
   box-sizing: border-box;
   width: 280px;
   height: 40px;
@@ -28,14 +28,14 @@
   font-size: 16px;
 }
 
-.logInForm label {
+.logg label {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 20px;
   color: black;
   margin: 0;
 }
 
-.loginForm button {
+.logg button {
   width: 140px;
   height: 40px;
   padding: 8px 12px;
@@ -45,22 +45,22 @@
   border-radius: 4px;
 }
 
-.loginForm span {
+.logg span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: rgb(255, 0, 166);
 }
 
 @media (min-width: 768px) {
-  .loginFormPage {
+  .loggPage {
     padding: 40px;
   }
 
-  .loginForm {
+  .logg {
     max-width: 400px;
     width: 400px;
   }
-  .loginForm input {
+  .logg input {
     width: 360px;
   }
 }
