@@ -3,7 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import "normalize.css";
 import AppBar from "./AppBar/AppBar";
-import  RestrictedRoute  from "./RestrictedRoute/RestrictedRoute";
+import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 import { refreshUser } from "../redux/auth/operations";
 import { selectIsRefreshing } from "../redux/auth/selectors";
 import css from "./App.module.css";
@@ -32,7 +33,13 @@ function App({ errorMessage }) {
       <Suspense fallback={<div className={css.apploading}>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage errorMessage={errorMessage} />} />
-          <Route path="/contacts" element={<ContactsPage />} />
+          <Route
+            path="/contacts"
+            element={
+              <PrivateRoute component={<ContactsPage />} redirectTo="/login" />
+            }
+          />
+
           <Route
             path="/register"
             element={
