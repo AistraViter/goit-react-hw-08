@@ -45,22 +45,22 @@
   border-radius: 4px;
 }
 
-.regesterForm span {
+.registerForm span {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 12px;
   color: rgb(255, 0, 166);
 }
 
 @media (min-width: 768px) {
-  .loginFormPage {
+  .registerFormPage {
     padding: 40px;
   }
 
-  .regesterForm {
+  .registerForm {
     max-width: 400px;
     width: 400px;
   }
-  .regesterForm input {
+  .registerForm input {
     width: 360px;
   }
 }

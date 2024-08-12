@@ -1,10 +1,9 @@
 .contactForm {
   box-sizing: border-box;
-  width: 400px;
+  max-width: 320px;
   padding: 20px;
   border: 2px solid black;
   border-radius: 4px;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -15,7 +14,7 @@
 
 .contactForm input {
   box-sizing: border-box;
-  width: 360px;
+  width: 280px;
   height: 40px;
   border: 2px solid rgb(131, 131, 131);
   border-radius: 4px;
@@ -47,3 +46,13 @@
   color: rgb(255, 0, 166);
 }
 
+@media (min-width: 768px) {
+
+  .contactForm {
+    max-width: 400px;
+    width: 400px;
+  }
+  .contactForm input {
+    width: 360px;
+  }
+}
