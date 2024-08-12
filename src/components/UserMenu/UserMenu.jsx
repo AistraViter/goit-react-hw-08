@@ -5,14 +5,16 @@ import { logOut } from "../../redux/auth/operations";
 
 function UserMenu() {
   const dispatch = useDispatch();
-  const user =useSelector(selectUser);
+  const user = useSelector(selectUser);
   return (
     <ul className={css.userMenu}>
       <li>
-        <p> Welcome, {user.name}! </p>
+        {user?.name ? <p> Welcome, {user.name}! </p> : <p> Welcome, Guest! </p>}
       </li>
       <li>
-        <button type="button" onClick={()=>dispatch(logOut())}> Logout</button>
+        <button type="button" onClick={() => dispatch(logOut())}>
+          Logout
+        </button>
       </li>
     </ul>
   );

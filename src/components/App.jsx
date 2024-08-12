@@ -1,14 +1,24 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import AppBar from "./AppBar/AppBar";
 import "normalize.css";
+import { useDispatch } from "react-redux";
+import { refreshUser } from "../redux/auth/operations";
 const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const ContactsPage = lazy(() => import("../pages/ContactsPage/ContactsPage"));
-const RegistrationPage = lazy(() => import("../pages/RegistrationPage/RegistrationPage"));
+const RegistrationPage = lazy(() =>
+  import("../pages/RegistrationPage/RegistrationPage")
+);
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
-function App({errorMessage }) {
+function App({ errorMessage }) {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
+
   return (
     <div>
       {<AppBar />}
