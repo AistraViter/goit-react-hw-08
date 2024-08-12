@@ -13,8 +13,8 @@ const contactFormSchema = Yup.object().shape({
     .required("Required"),
   number: Yup.string()
     .matches(
-      /^[0-9]{3}-[0-9]{2}-[0-9]{4}$/,
-      "Invalid phone number format! Should be like: 000-00-00"
+      /^[0-9]{3}-[0-9]{3}-[0-9]{4}$/,
+      "Invalid phone number format! Should be like: XXX-XXX-XXXX"
     )
     .required("Required"),
 });
@@ -51,8 +51,8 @@ const ContactForm = () => {
             {({ field }) => (
               <MaskedInput
                 {...field}
-                mask={[/\d/, /\d/, /\d/, "-", /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]}
-                placeholder="000-00-0000"
+                mask={[/\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, "-", /\d/, /\d/, /\d/, /\d/]}
+                placeholder="XXX-XXX-XXXX"
                 id={`contactFormNumber${id}`}
                 type="tel"
               />
