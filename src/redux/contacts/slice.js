@@ -10,7 +10,6 @@ const contactsSlice = createSlice({
     error: null,
   },
 
-  // Додаємо обробку зовнішніх екшенів
   extraReducers: (builder) => {
     builder
       .addCase(fetchContacts.pending, (state) => {
@@ -45,10 +44,9 @@ const contactsSlice = createSlice({
       .addCase(deleteContact.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        const index = state.items.findIndex(
-          (contact) => contact.id === action.payload.id
+        state.items = state.items.filter(
+          (contact) => contact.id !== action.payload.id
         );
-        state.items.splice(index, 1);
       })
       .addCase(deleteContact.rejected, (state, action) => {
         state.isLoading = false;
@@ -65,13 +63,10 @@ const contactsSlice = createSlice({
         state.isLoggedIn = false;
         state.isRefreshing = false;
       })
-
-      .addCase(logOut.rejected, (state, action) => {
-        state.error = action.payload;
-        state.user = { name: null, email: null };
-        state.token = null;
-        state.isLoggedIn = false;
-        state.isRefreshing = false;
+      .addCase(logOut.rejected, (state) => {
+        state.items = [];
+        state.isLoading = false;
+        state.error = null;
       });
   },
 });
