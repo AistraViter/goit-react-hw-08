@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Toaster } from "react-hot-toast";
 import "normalize.css";
 import Layout from "./Layout/Layout";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
@@ -17,7 +18,7 @@ const RegistrationPage = lazy(() =>
 const LogInPage = lazy(() => import("../pages/LogInPage/LogInPage"));
 const NotFoundPage = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
-function App({ errorMessage }) {
+function App() {
   const dispatch = useDispatch();
   const isRefreshing = useSelector(selectIsRefreshing);
 
@@ -29,10 +30,11 @@ function App({ errorMessage }) {
     <div className={css.apploading}>Refreshing...</div>
   ) : (
     <div>
-      {<Layout />}
+      <Layout />
+      <Toaster position="top-center" duration= {50000} />
       <Suspense fallback={<div className={css.apploading}>Loading...</div>}>
         <Routes>
-          <Route path="/" element={<HomePage errorMessage={errorMessage} />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/contacts"
             element={
