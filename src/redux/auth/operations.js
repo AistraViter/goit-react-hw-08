@@ -1,5 +1,4 @@
 import axios from "axios";
-import { toast } from "react-hot-toast"; // Імпорт toast
 
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
@@ -16,7 +15,7 @@ export const register = createAsyncThunk(
       setAuthHeader(response.data.token);
       return response.data;
     } catch (e) {
-      toast.error("A user with this email is already registered."); // Заміна alert на toast.error
+      alert("A user with this email is already registered.");
       return thunkAPI.rejectWithValue(e.message);
     }
   }
@@ -28,7 +27,7 @@ export const logIn = createAsyncThunk("auth/login", async (creds, thunkAPI) => {
     setAuthHeader(response.data.token);
     return response.data;
   } catch (e) {
-    toast.error("Incorrect username or password. Please try again."); // Заміна alert на toast.error
+    alert("Incorrect username or password. Please try again.");
     return thunkAPI.rejectWithValue(e.message);
   }
 });

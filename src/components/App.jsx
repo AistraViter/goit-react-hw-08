@@ -1,7 +1,6 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { Toaster } from "react-hot-toast";
 import "normalize.css";
 import Layout from "./Layout/Layout";
 import RestrictedRoute from "./RestrictedRoute/RestrictedRoute";
@@ -31,7 +30,6 @@ function App() {
   ) : (
     <div>
       <Layout />
-      <Toaster position="top-center" duration= {50000} />
       <Suspense fallback={<div className={css.apploading}>Loading...</div>}>
         <Routes>
           <Route path="/" element={<HomePage />} />
