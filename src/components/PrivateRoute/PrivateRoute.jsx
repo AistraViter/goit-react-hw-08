@@ -1,10 +1,17 @@
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { selectIsLoggedIn } from "../../redux/auth/selectors";
+import { Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { selectIsLoggedIn } from '../../redux/auth/selectors.js';
 
-function PrivateRoute({ component, redirectTo }) {
+export const PrivateRoute = ({ component: Component, redirectTo = '/' }) => {
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  return isLoggedIn ? component : <Navigate to={redirectTo} />;
-}
+  const token = useSelector((state) => state.auth.token);
 
-export default PrivateRoute;
+  // Очистка токена від зайвих лапок
+  const cleanedToken = token ? token.replace(/"/g, '') : null;
+
+  // Виводимо токен у консоль
+  console.log("Токен PrivateRoute:", cleanedToken);
+
+
+  return isLoggedIn ? Component : <Navigate to={redirectTo} />;
+};
